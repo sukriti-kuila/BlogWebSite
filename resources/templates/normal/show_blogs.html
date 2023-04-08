@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home</title>
+</head>
+<body>
+<!-- <tr th:each= "b : ${blogs}">
+	      <td th:text="${b.title}">1</td> -->
+<section>
+	<div class="row" style="margin-right: 3%; margin-left: 3%">
+		<div class="col-md-3 mt-2" th:each= "b : ${blogs}">
+			<div class="card-deck">
+			  <div class="card">
+			    <img class="card-img-top" th:src="@{'/img/'+${b.image}}">
+			    <div class="card-body">
+			      <h5 class="card-title" th:text="${b.title}">Card title</h5>
+			      <p class="card-text" th:text="${b.description}">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+			      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+			      <div class="container text-center" style="padding: 3px;   ">
+			       <i class="fas fa-edit" style="color:green; cursor:pointer;padding: 2px;  "></i> 
+		 		   <i class="fas fa-trash-alt" style="color:red; cursor:pointer; margin-right:3px;"></i> 
+			      </div>
+			    </div>
+			  </div>
+			</div>
+		 </div>	
+	</div>
+	<nav aria-label="Page navigation example" th:if="${totalpage > 1}">
+		  <ul class="pagination justify-content-center">
+		    <li class="page-item" th:if="${currentpage != 0}">
+		      <a class="page-link" th:href="@{'/user/show-blogs/'+${currentpage-1}}" aria-label="Previous">
+			        <span aria-hidden="true">&laquo;</span>
+			        <span class="sr-only">Previous</span>
+      		  </a>
+		    </li>
+		    <li class="page-item" th:classappend="${currentpage==i-1? 'active':'' }" 
+		    					  th:each="i : ${#numbers.sequence(1,totalpage)}">
+		    	<a class="page-link" th:href="@{'/user/show-blogs/'+${i-1}}"> <span th:text="${i}"> </span> </a>
+		    </li>
+		    <!-- <li class="page-item"><a class="page-link" href="#">2</a></li>
+		    <li class="page-item"><a class="page-link" href="#">3</a></li> -->
+		    <li class="page-item" th:if="${currentpage != totalpage-1}">
+		            <a class="page-link" th:href="@{'/user/show-blogs/'+${currentpage+1}}" aria-label="Next">
+				        <span aria-hidden="true">&raquo;</span>
+				        <span class="sr-only">Next</span>
+      				</a>
+		    </li>
+		  </ul>
+	</nav>
+</section>
+
+	
+</body>
+</html>

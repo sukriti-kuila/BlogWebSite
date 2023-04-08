@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+th:replace="normal/base::layout(~{::section})">
+<head>
+  <meta charset="UTF-8" />
+  <title>Add Blog</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <link rel="icon" href="favicon.png">
+</head>
+<body>
+<section>
+       <div class="card"  style="margin-right:2%; margin-left:2%; margin-bottom: 2%">
+       		<div class="card-body">
+       			
+       			<h1 class="text-center"> Add Blog</h1>
+       			<!-- <i class="fa-sharp fa-solid fa-book-open"></i> -->
+       			<div class="container-fluid mt-1">
+       				<div class="row">
+       					<div class="col-md-10 offset-md-1">
+       						<form action="#" th:object="${blog}"
+       						 enctype="multipart/form-data"
+       						 method="POST"
+       						 th:action="@{/user/process-blog}"
+       						 class="mt-2"	
+       						>
+       							<!--  title -->
+       							<div class="input-group">
+       								<div class="input-group-prepend">
+       									<div class="input-group-text" style="height:37px">
+       										<i class="fa fa-plus"></i>
+       									</div>
+       								</div>
+       									<input type="text" id="title" name="title" placeholder="Enter Title" class="form-control" required>
+       							</div>
+       							<!--  category -->
+	       						<div class="input-group mt-3">
+	       							<div class="input-group-prepend">
+	       								<div class="input-group-text" style="height:37px">
+	       									<i class="fa-regular fa-newspaper"></i>
+	       								</div>
+	       							</div>
+	       								<input type="text" id="title" name="category" placeholder="Enter Category" class="form-control">
+	       						</div>
+       						<!-- <div class="d-inline">
+       							<p>Choose Privacy? </p>
+       						</div>	
+       						<div class="form-check form-check-inline">
+							  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+							  <label class="form-check-label" for="inlineCheckbox1">Public</label>
+							</div>
+							<div class="form-check form-check-inline">
+							  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+							  <label class="form-check-label" for="inlineCheckbox2">Private</label>
+							</div> -->
+							<!--  Privacy -->
+							<div class="row mt-3">
+								  <div class="col-4 d-inline">
+								    <p>Choose Privacy?</p>
+								  </div>
+								  <div class="col-4 form-check d-inline">
+								    <input name="privacy" class="form-check-input" type="radio" id="inlineCheckbox1" value="Public" checked>
+								    <label class="form-check-label" for="inlineCheckbox1">Public</label>
+								  </div>
+								  <div class="col-4 form-check d-inline">
+								    <input name="privacy" class="form-check-input" type="radio" id="inlineCheckbox2" value="Private">
+								    <label class="form-check-label" for="inlineCheckbox2">Private</label>
+								  </div>
+							</div>
+							 
+							 <!-- paywall?  -->
+							  <div class="row mt-3">
+								  <div class="col-4 d-inline">
+								    <p>Premium Article?</p>
+								  </div>
+								  <div class="col-4 form-check d-inline">
+								    <input name="paid" class="form-check-input" type="radio" id="inlineCheckbox1" value="Yes">
+								    <label class="form-check-label" for="inlineCheckbox1">Yes</label>
+								  </div>
+								  <div class="col-4 form-check d-inline">
+								    <input name="paid" class="form-check-input" type="radio" id="inlineCheckbox2" value="No" checked>
+								    <label class="form-check-label" for="inlineCheckbox2">No</label>
+								  </div>
+							</div>
+							
+							
+       						
+       						<!-- description -->
+       						<div class="form-group mt-3">
+       							<textarea name="description" id="mytextarea" placeholder="Write About It" class="form-control" rows="10"></textarea>
+       						</div>
+       						
+       						<!-- Image -->
+       						<div class="custom-file mt-3">
+       							<input type="file" name="image" required>
+       						</div>	
+       						
+       						<!-- Submit -->
+       						<div class="container text-center">
+       							<button class="btn btn-outline-primary">Save Blog</button>
+       							
+       						</div>
+     
+       					</form>
+       					
+       					</div>
+       				</div>
+       			</div>
+       		</div>
+       </div>
+       <script src="https://cdn.tiny.cloud/1/ldkba8uifjv8hcczjnky31c246t3i5unhhqvi04erw2zjnaa/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+       <script>
+	      tinymce.init({
+	        selector: '#mytextarea'
+	      });
+    </script> 
+    <!-- <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+    <script>
+                     ClassicEditor
+                   .create( document.querySelector( '#editor' ) )
+                 .then( editor => {
+                console.log( editor );
+             } )
+            .catch( error => {
+            console.error( error );
+            } );
+    </script> -->
+</section>
+</body>
+</html>

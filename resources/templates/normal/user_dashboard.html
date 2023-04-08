@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+th:replace="normal/base::layout(~{::section})">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <link rel="icon" href="favicon.png">
+</head>
+<body>
+<section>
+  <h1 style="margin-left:10px">Hello <span th:text="${user.name}" style="color: red"></span> welcome to your dashboard</h1>
+</section>
+</body>
+</html>
